@@ -757,7 +757,7 @@ public abstract class PictureCommonFragment extends Fragment implements IPicture
      * @return
      */
     @SuppressLint("StringFormatInvalid")
-    private static String getTipsMsg(Context context, String mimeType, int maxSelectNum) {
+    protected String getTipsMsg(Context context, String mimeType, int maxSelectNum) {
         if (PictureMimeType.isHasVideo(mimeType)) {
             return context.getString(R.string.ps_message_video_max_num, String.valueOf(maxSelectNum));
         } else if (PictureMimeType.isHasAudio(mimeType)) {
