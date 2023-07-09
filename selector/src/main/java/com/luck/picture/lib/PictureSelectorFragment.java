@@ -218,6 +218,9 @@ public class PictureSelectorFragment extends PictureCommonFragment
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+        if (null == mRecycler || null == mAdapter) {
+            return;
+        }
         outState.putInt(PictureConfig.EXTRA_ALL_FOLDER_SIZE, allFolderSize);
         outState.putInt(PictureConfig.EXTRA_CURRENT_PAGE, mPage);
         outState.putInt(PictureConfig.EXTRA_PREVIEW_CURRENT_POSITION, mRecycler.getLastVisiblePosition());
@@ -382,7 +385,7 @@ public class PictureSelectorFragment extends PictureCommonFragment
         addAlbumPopWindowAction();
     }
 
-    private void recoverSaveInstanceData(){
+    private void recoverSaveInstanceData() {
         mAdapter.setDisplayCamera(isDisplayCamera);
         setEnterAnimationDuration(0);
         if (selectorConfig.isOnlySandboxDir) {
@@ -475,7 +478,7 @@ public class PictureSelectorFragment extends PictureCommonFragment
 
     @Override
     public void handlePermissionSettingResult(String[] permissions) {
-        if (permissions == null){
+        if (permissions == null) {
             return;
         }
         onPermissionExplainEvent(false, null);
