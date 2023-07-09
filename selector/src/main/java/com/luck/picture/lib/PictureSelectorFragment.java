@@ -218,7 +218,7 @@ public class PictureSelectorFragment extends PictureCommonFragment
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (null == mRecycler || null == mAdapter) {
+        if (null == mRecycler || null == mAdapter || null == albumListPopWindow || null == selectorConfig) {
             return;
         }
         outState.putInt(PictureConfig.EXTRA_ALL_FOLDER_SIZE, allFolderSize);
