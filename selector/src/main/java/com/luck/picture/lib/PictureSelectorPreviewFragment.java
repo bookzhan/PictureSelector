@@ -233,6 +233,9 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
         completeSelectView.setSelectedChange(true);
         notifySelectNumberStyle(currentMedia);
         notifyPreviewGalleryData(isAddRemove, currentMedia);
+        if (null != selectorConfig.onSelectedChangedListener) {
+            selectorConfig.onSelectedChangedListener.onSelectedChanged(selectorConfig.getSelectedResult());
+        }
     }
 
     @Override

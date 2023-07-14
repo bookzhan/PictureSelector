@@ -154,6 +154,9 @@ public class PictureSelectorFragment extends PictureCommonFragment
         if (!isAddRemove) {
             sendChangeSubSelectPositionEvent(true);
         }
+        if (null != selectorConfig.onSelectedChangedListener) {
+            selectorConfig.onSelectedChangedListener.onSelectedChanged(selectorConfig.getSelectedResult());
+        }
     }
 
     @Override

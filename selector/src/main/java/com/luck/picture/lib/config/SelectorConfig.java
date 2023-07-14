@@ -34,6 +34,7 @@ import com.luck.picture.lib.interfaces.OnResultCallbackListener;
 import com.luck.picture.lib.interfaces.OnSelectAnimListener;
 import com.luck.picture.lib.interfaces.OnSelectFilterListener;
 import com.luck.picture.lib.interfaces.OnSelectLimitTipsListener;
+import com.luck.picture.lib.interfaces.OnSelectedChangedListener;
 import com.luck.picture.lib.interfaces.OnVideoThumbnailEventListener;
 import com.luck.picture.lib.language.LanguageConfig;
 import com.luck.picture.lib.magical.BuildRecycleItemViewParams;
@@ -272,6 +273,7 @@ public final class SelectorConfig {
     public OnGridItemSelectAnimListener onItemSelectAnimListener;
     public OnSelectAnimListener onSelectAnimListener;
     public OnCustomLoadingListener onCustomLoadingListener;
+    public OnSelectedChangedListener onSelectedChangedListener;
 
     /**
      * selected current album folder
@@ -375,6 +377,7 @@ public final class SelectorConfig {
         videoPlayerEngine = null;
         onCustomLoadingListener = null;
         currentLocalMediaFolder = null;
+        onSelectedChangedListener = null;
         dataSource.clear();
         selectedResult.clear();
         albumDataSource.clear();
