@@ -1,5 +1,7 @@
 package com.luck.picture.lib.style;
 
+import com.luck.picture.lib.widget.BottomNavBar;
+
 /**
  * @author：luck
  * @date：2021/11/15 4:15 下午
@@ -116,6 +118,11 @@ public class BottomNavBarStyle {
      * 是否显示已选数量圆点提醒
      */
     private boolean isCompleteCountTips = true;
+
+    /**
+     * 是否隐藏
+     */
+    private boolean isHideBottomNavBar;
 
 
     public BottomNavBarStyle() {
@@ -303,5 +310,13 @@ public class BottomNavBarStyle {
 
     public void setCompleteCountTips(boolean completeCountTips) {
         isCompleteCountTips = completeCountTips;
+    }
+
+    public boolean isHideBottomNavBar() {
+        return isHideBottomNavBar;
+    }
+
+    public void setHideBottomNavBar(boolean hideBottomNavBar) {
+        isHideBottomNavBar = hideBottomNavBar;
     }
 }

@@ -89,6 +89,10 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
         }
         PictureSelectorStyle selectorStyle = config.selectorStyle;
         BottomNavBarStyle bottomBarStyle = selectorStyle.getBottomBarStyle();
+        if(bottomBarStyle.isHideBottomNavBar()){
+            setVisibility(GONE);
+            return;
+        }
         if (config.isOriginalControl) {
             originalCheckbox.setVisibility(View.VISIBLE);
             int originalDrawableLeft = bottomBarStyle.getBottomOriginalDrawableLeft();

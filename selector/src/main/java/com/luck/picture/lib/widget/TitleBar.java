@@ -162,6 +162,7 @@ public class TitleBar extends RelativeLayout implements View.OnClickListener {
         if (StyleUtils.checkStyleValidity(backResId)) {
             ivLeftBack.setImageResource(backResId);
         }
+        ivLeftBack.setVisibility(titleBarStyle.isHideBackButton() ? GONE : VISIBLE);
         String titleDefaultText = StyleUtils.checkStyleValidity(titleBarStyle.getTitleDefaultTextResId())
                 ? getContext().getString(titleBarStyle.getTitleDefaultTextResId()) : titleBarStyle.getTitleDefaultText();
         if (StyleUtils.checkTextValidity(titleDefaultText)) {

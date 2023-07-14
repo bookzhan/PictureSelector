@@ -93,6 +93,7 @@ public class CompleteSelectView extends LinearLayout {
         }
 
         BottomNavBarStyle bottomBarStyle = selectorStyle.getBottomBarStyle();
+        setVisibility(bottomBarStyle.isHideBottomNavBar()?GONE:VISIBLE);
 
         if (bottomBarStyle.isCompleteCountTips()) {
             int selectNumRes = bottomBarStyle.getBottomSelectNumResources();

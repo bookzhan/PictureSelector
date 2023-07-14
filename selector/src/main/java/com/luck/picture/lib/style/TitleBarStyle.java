@@ -1,5 +1,7 @@
 package com.luck.picture.lib.style;
 
+import android.widget.Button;
+
 /**
  * @author：luck
  * @date：2021/11/15 4:15 下午
@@ -14,6 +16,11 @@ public class TitleBarStyle {
      * 标题栏左边关闭样式
      */
     private int titleLeftBackResource;
+
+    /**
+     * 是否隐藏返回按钮
+     */
+    private boolean isHideBackButton;
 
     /**
      * 预览标题栏左边关闭样式
@@ -293,5 +300,13 @@ public class TitleBarStyle {
 
     public void setDisplayTitleBarLine(boolean displayTitleBarLine) {
         isDisplayTitleBarLine = displayTitleBarLine;
+    }
+
+    public boolean isHideBackButton() {
+        return isHideBackButton;
+    }
+
+    public void setHideBackButton(boolean hideBackButton) {
+        isHideBackButton = hideBackButton;
     }
 }
