@@ -46,18 +46,19 @@
                 android:maxEms="6"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                tools:text="@string/ps_camera_roll"
                 android:textColor="@color/ps_color_white"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:text="@string/ps_camera_roll" />
 
             <ImageView
                 android:id="@+id/ps_iv_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
                 android:layout_toEndOf="@id/ps_tv_title"
                 android:scaleType="centerInside"
-                android:src="@drawable/ps_ic_default_arrow" />
+                android:src="@drawable/svg_icon_arrow_down" />
         </RelativeLayout>
 
 
