@@ -50,4 +50,20 @@
         android:textSize="14sp"
         android:visibility="gone" />
 
+    <com.luck.picture.lib.widget.MediumBoldTextView
+        android:id="@+id/ps_tv_need_select_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:enabled="false"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingTop="10dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
+        android:text="@string/ps_need_select_number"
+        android:textColor="@color/ps_color_fa632d"
+        android:textSize="14sp"
+        android:visibility="gone" />
 </merge>

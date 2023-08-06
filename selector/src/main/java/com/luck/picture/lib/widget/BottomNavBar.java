@@ -30,6 +30,7 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
     protected TextView tvImageEditor;
     private CheckBox originalCheckbox;
     protected SelectorConfig config;
+    private TextView tvNeedSelectNumber;
 
     public BottomNavBar(Context context) {
         super(context);
@@ -54,6 +55,7 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
         tvPreview = findViewById(R.id.ps_tv_preview);
         tvImageEditor = findViewById(R.id.ps_tv_editor);
         originalCheckbox = findViewById(R.id.cb_original);
+        tvNeedSelectNumber = findViewById(R.id.ps_tv_need_select_number);
         tvPreview.setOnClickListener(this);
         tvImageEditor.setVisibility(GONE);
         setBackgroundColor(ContextCompat.getColor(getContext(), R.color.ps_color_grey));
@@ -78,7 +80,7 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
         inflate(getContext(), R.layout.ps_bottom_nav_bar, this);
     }
 
-    protected void handleLayoutUI(){
+    protected void handleLayoutUI() {
 
     }
 
@@ -89,7 +91,7 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
         }
         PictureSelectorStyle selectorStyle = config.selectorStyle;
         BottomNavBarStyle bottomBarStyle = selectorStyle.getBottomBarStyle();
-        if(bottomBarStyle.isHideBottomNavBar()){
+        if (bottomBarStyle.isHideBottomNavBar()) {
             setVisibility(GONE);
             return;
         }
@@ -225,6 +227,15 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
                 tvPreview.setText(getContext().getString(R.string.ps_preview));
             }
         }
+        if (config.maxSelectNum == config.minSelectNum && config.maxSelectNum > 0) {
+            tvNeedSelectNumber.setVisibility(VISIBLE);
+            int count = config.maxSelectNum - config.getSelectCount();
+            if (count > 0) {
+                tvNeedSelectNumber.setText(getContext().getString(R.string.ps_need_select_number, count));
+            } else {
+                tvNeedSelectNumber.setText(R.string.ps_need_select_number_finish);
+            }
+        }
     }
 
     /**
@@ -295,7 +306,7 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
         /**
          * 首次选择原图并加入选择结果
          */
-        public void onFirstCheckOriginalSelectedChange(){
+        public void onFirstCheckOriginalSelectedChange() {
 
         }
     }
