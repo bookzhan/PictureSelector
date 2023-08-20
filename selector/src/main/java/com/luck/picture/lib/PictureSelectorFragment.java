@@ -521,6 +521,9 @@ public class PictureSelectorFragment extends PictureCommonFragment
                 mAdapter.setDisplayCamera(isDisplayCamera);
                 titleBar.setTitle(curFolder.getFolderName());
                 LocalMediaFolder lastFolder = selectorConfig.currentLocalMediaFolder;
+                if (null == lastFolder) {
+                    return;
+                }
                 long lastBucketId = lastFolder.getBucketId();
                 if (selectorConfig.isPageStrategy) {
                     if (curFolder.getBucketId() != lastBucketId) {
