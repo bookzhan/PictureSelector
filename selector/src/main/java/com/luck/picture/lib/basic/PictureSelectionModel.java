@@ -1351,6 +1351,7 @@ public final class PictureSelectionModel {
         if (selectionConfig.selectionMode == SelectModeConfig.SINGLE && selectionConfig.isDirectReturnSingle) {
             selectionConfig.selectedResult.clear();
         } else {
+            selectionConfig.selectedResult.clear();
             selectionConfig.addAllSelectResult(new ArrayList<>(selectedList));
         }
         return this;
