@@ -517,6 +517,9 @@ public class PictureSelectorFragment extends PictureCommonFragment
 
             @Override
             public void onItemClick(int position, LocalMediaFolder curFolder) {
+                if (null == selectorConfig || null == mAdapter || null == titleBar || null == curFolder) {
+                    return;
+                }
                 isDisplayCamera = selectorConfig.isDisplayCamera && curFolder.getBucketId() == PictureConfig.ALL;
                 mAdapter.setDisplayCamera(isDisplayCamera);
                 titleBar.setTitle(curFolder.getFolderName());
