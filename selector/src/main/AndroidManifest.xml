@@ -20,14 +20,16 @@
 
         <activity
             android:name=".basic.PictureSelectorSupporterActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:configChanges="keyboard|keyboardHidden|locale|orientation|screenSize"
+            android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.NoActionBar">
 
         </activity>
 
         <activity
             android:name=".basic.PictureSelectorTransparentActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:configChanges="keyboard|keyboardHidden|locale|orientation|screenSize"
+            android:screenOrientation="portrait"
             android:theme="@style/Picture.Theme.Translucent">
 
         </activity>
