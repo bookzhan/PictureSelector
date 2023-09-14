@@ -63,5 +63,5 @@
         android:text="@string/ps_need_select_number"
         android:textColor="@color/ps_color_fa632d"
         android:textSize="13sp"
-        android:visibility="visible" />
+        android:visibility="gone" />
 </merge>
