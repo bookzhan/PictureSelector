@@ -232,7 +232,7 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
                 tvPreview.setText(getContext().getString(R.string.ps_preview));
             }
         }
-        if (config.maxSelectNum == config.minSelectNum && config.maxSelectNum > 0) {
+//        if (config.maxSelectNum == config.minSelectNum && config.maxSelectNum > 0) {
             if (getContext().getResources().getDisplayMetrics().densityDpi <= 320) {
                 tvNeedSelectNumber.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
             }
@@ -243,7 +243,7 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
             } else {
                 tvNeedSelectNumber.setText(R.string.ps_need_select_number_finish);
             }
-        }
+//        }
     }
 
     private static Size getScreenSize(Context context) {

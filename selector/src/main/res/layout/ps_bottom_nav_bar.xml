@@ -56,12 +56,24 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_toStartOf="@+id/ps_complete_select"
+        android:layout_toEndOf="@+id/ps_tv_preview"
         android:enabled="false"
         android:gravity="center"
-        android:layout_marginStart="70dp"
-        android:layout_marginEnd="70dp"
         android:text="@string/ps_need_select_number"
         android:textColor="@color/ps_color_fa632d"
         android:textSize="13sp"
         android:visibility="gone" />
+
+    <com.luck.picture.lib.widget.CompleteSelectView
+        android:id="@+id/ps_complete_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/ps_transparent_space"
+        android:enabled="false" />
 </merge>
