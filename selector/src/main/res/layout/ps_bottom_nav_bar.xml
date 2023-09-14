@@ -58,8 +58,10 @@
         android:layout_centerVertical="true"
         android:enabled="false"
         android:gravity="center"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
         android:text="@string/ps_need_select_number"
         android:textColor="@color/ps_color_fa632d"
         android:textSize="13sp"
-        android:visibility="gone" />
+        android:visibility="visible" />
 </merge>
