@@ -1,8 +1,13 @@
 package com.luck.picture.lib.widget;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.Size;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
@@ -228,6 +233,9 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
             }
         }
         if (config.maxSelectNum == config.minSelectNum && config.maxSelectNum > 0) {
+            if (getContext().getResources().getDisplayMetrics().densityDpi <= 320) {
+                tvNeedSelectNumber.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+            }
             tvNeedSelectNumber.setVisibility(VISIBLE);
             int count = config.maxSelectNum - config.getSelectCount();
             if (count > 0) {
@@ -236,6 +244,13 @@ public class BottomNavBar extends RelativeLayout implements View.OnClickListener
                 tvNeedSelectNumber.setText(R.string.ps_need_select_number_finish);
             }
         }
+    }
+
+    private static Size getScreenSize(Context context) {
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics dm = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(dm);
+        return new Size(dm.widthPixels, dm.heightPixels);
     }
 
     /**
