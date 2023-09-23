@@ -26,6 +26,7 @@ import android.view.animation.AnimationUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.luck.picture.lib.R;
 import com.luck.picture.lib.app.PictureAppMaster;
@@ -775,6 +776,14 @@ public abstract class PictureCommonFragment extends Fragment implements IPicture
                 Fragment fragment = fragments.get(i);
                 if (fragment instanceof PictureCommonFragment) {
                     ((PictureCommonFragment) fragment).onSelectedChange(isAddRemove, currentMedia);
+                }
+                if (null != fragment.getHost()) {
+                    List<Fragment> fragmentList = fragment.getChildFragmentManager().getFragments();
+                    for (Fragment fragmentSub : fragmentList) {
+                        if (fragmentSub instanceof PictureCommonFragment) {
+                            ((PictureCommonFragment) fragmentSub).onSelectedChange(isAddRemove, currentMedia);
+                        }
+                    }
                 }
             }
         }
