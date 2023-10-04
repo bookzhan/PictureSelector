@@ -19,14 +19,18 @@ public final class FileDirMap {
         if (!ActivityCompatHelper.assertValidRequest(context)) {
             return;
         }
-        if (null == dirMap.get(SelectMimeType.TYPE_IMAGE)) {
-            dirMap.put(SelectMimeType.TYPE_IMAGE, context.getExternalFilesDir(Environment.DIRECTORY_PICTURES).getPath());
-        }
-        if (null == dirMap.get(SelectMimeType.TYPE_VIDEO)) {
-            dirMap.put(SelectMimeType.TYPE_VIDEO, context.getExternalFilesDir(Environment.DIRECTORY_MOVIES).getPath());
-        }
-        if (null == dirMap.get(SelectMimeType.TYPE_AUDIO)) {
-            dirMap.put(SelectMimeType.TYPE_AUDIO, context.getExternalFilesDir(Environment.DIRECTORY_MUSIC).getPath());
+        try {
+            if (null == dirMap.get(SelectMimeType.TYPE_IMAGE)) {
+                dirMap.put(SelectMimeType.TYPE_IMAGE, context.getExternalFilesDir(Environment.DIRECTORY_PICTURES).getPath());
+            }
+            if (null == dirMap.get(SelectMimeType.TYPE_VIDEO)) {
+                dirMap.put(SelectMimeType.TYPE_VIDEO, context.getExternalFilesDir(Environment.DIRECTORY_MOVIES).getPath());
+            }
+            if (null == dirMap.get(SelectMimeType.TYPE_AUDIO)) {
+                dirMap.put(SelectMimeType.TYPE_AUDIO, context.getExternalFilesDir(Environment.DIRECTORY_MUSIC).getPath());
+            }
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
         }
     }
 

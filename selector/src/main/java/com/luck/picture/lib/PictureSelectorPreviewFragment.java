@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -764,6 +765,10 @@ public class PictureSelectorPreviewFragment extends PictureCommonFragment {
                 if (isExternalPreview) {
                     deletePreview();
                 } else {
+                    if (mData.isEmpty() || mData.size() <= viewPager.getCurrentItem() || viewPager.getCurrentItem() < 0) {
+                        Log.e(TAG, "mData.isEmpty() || mData.size() <= viewPager.getCurrentItem() || viewPager.getCurrentItem() < 0");
+                        return;
+                    }
                     LocalMedia currentMedia = mData.get(viewPager.getCurrentItem());
                     int selectResultCode = confirmSelect(currentMedia, tvSelected.isSelected());
                     if (selectResultCode == SelectedManager.ADD_SUCCESS) {
