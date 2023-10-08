@@ -18,7 +18,7 @@
         android:background="@drawable/ps_checkbox_selector"
         android:gravity="center"
         android:textColor="@color/ps_color_white"
-        android:textSize="12sp" />
+        android:textSize="8sp" />
 
     <View
         android:id="@+id/btnCheck"
@@ -30,17 +30,30 @@
 
     <com.luck.picture.lib.widget.MediumBoldTextView
         android:id="@+id/tv_duration"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ps_ic_shadow_bg"
-        android:drawableLeft="@drawable/ps_ic_audio"
+        android:drawableStart="@drawable/ps_ic_audio"
         android:drawablePadding="5dp"
         android:gravity="center_vertical"
-        android:paddingLeft="5dp"
-        android:layout_alignParentBottom="true"
+        android:paddingStart="5dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="5dp"
         android:text="00:00"
         android:textColor="@color/ps_color_white"
         android:textSize="11sp" />
 
 
+    <com.luck.picture.lib.widget.MediumBoldTextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/ps_ic_shadow_bg"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        android:textColor="@color/ps_color_white"
+        android:textSize="11sp" />
 </com.luck.picture.lib.widget.SquareRelativeLayout>
