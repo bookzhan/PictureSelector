@@ -3,8 +3,11 @@ package com.luck.picture.lib.utils;
 import android.content.Context;
 import android.os.Environment;
 
+import androidx.annotation.NonNull;
+
 import com.luck.picture.lib.config.SelectMimeType;
 
+import java.io.File;
 import java.util.HashMap;
 
 /**
@@ -13,37 +16,29 @@ import java.util.HashMap;
  * @describe：FileDirMap
  */
 public final class FileDirMap {
-    private static final HashMap<Integer, String> dirMap = new HashMap<>();
-
-    public static void init(Context context) {
-        if (!ActivityCompatHelper.assertValidRequest(context)) {
-            return;
-        }
-        try {
-            if (null == dirMap.get(SelectMimeType.TYPE_IMAGE)) {
-                dirMap.put(SelectMimeType.TYPE_IMAGE, context.getExternalFilesDir(Environment.DIRECTORY_PICTURES).getPath());
-            }
-            if (null == dirMap.get(SelectMimeType.TYPE_VIDEO)) {
-                dirMap.put(SelectMimeType.TYPE_VIDEO, context.getExternalFilesDir(Environment.DIRECTORY_MOVIES).getPath());
-            }
-            if (null == dirMap.get(SelectMimeType.TYPE_AUDIO)) {
-                dirMap.put(SelectMimeType.TYPE_AUDIO, context.getExternalFilesDir(Environment.DIRECTORY_MUSIC).getPath());
-            }
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-    }
 
     public static String getFileDirPath(Context context, int type) {
-        String dir = dirMap.get(type);
-        if (null == dir) {
-            init(context);
-            dir = dirMap.get(type);
+        if (type == SelectMimeType.TYPE_IMAGE) {
+            return getFileDir(context, Environment.DIRECTORY_PICTURES).getAbsolutePath();
+        } else if (type == SelectMimeType.TYPE_VIDEO) {
+            return getFileDir(context, Environment.DIRECTORY_MOVIES).getAbsolutePath();
+        } else if (type == SelectMimeType.TYPE_AUDIO) {
+            return getFileDir(context, Environment.DIRECTORY_MUSIC).getAbsolutePath();
         }
-        return dir;
+        return getFileDir(context, Environment.DIRECTORY_DOCUMENTS).getAbsolutePath();
     }
 
-    public static void clear() {
-        dirMap.clear();
+    @NonNull
+    private static File getFileDir(Context context, String type) {
+        File filesDir;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            filesDir = context.getExternalFilesDir(type);
+            if (null == filesDir) {
+                filesDir = context.getFilesDir();
+            }
+        } else {
+            filesDir = context.getFilesDir();
+        }
+        return filesDir;
     }
 }

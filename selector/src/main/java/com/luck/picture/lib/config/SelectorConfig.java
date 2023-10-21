@@ -384,7 +384,6 @@ public final class SelectorConfig {
         selectedPreviewResult.clear();
         PictureThreadUtils.cancel(PictureThreadUtils.getIoPool());
         BuildRecycleItemViewParams.clear();
-        FileDirMap.clear();
         LocalMedia.destroyPool();
     }
 }

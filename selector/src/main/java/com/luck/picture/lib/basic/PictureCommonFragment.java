@@ -298,7 +298,6 @@ public abstract class PictureCommonFragment extends Fragment implements IPicture
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         selectorConfig = SelectorProviders.getInstance().getSelectorConfig();
-        FileDirMap.init(view.getContext());
         if (selectorConfig.viewLifecycle != null) {
             selectorConfig.viewLifecycle.onViewCreated(this, view, savedInstanceState);
         }
