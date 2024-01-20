@@ -3,6 +3,7 @@ apply from: "config.gradle"
 
 buildscript {
     repositories {
+        maven { url "https://maven.aliyun.com/nexus/content/groups/public"}
         google()
         mavenCentral()
         maven {
@@ -21,6 +22,7 @@ buildscript {
 allprojects {
 
     repositories {
+        maven { url "https://maven.aliyun.com/nexus/content/groups/public"}
         google()
         mavenCentral()
         maven {
