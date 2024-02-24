@@ -83,7 +83,7 @@ public class MediaPlayerView extends FrameLayout implements SurfaceHolder.Callba
                 mediaPlayer.setDataSource(path);
             }
             mediaPlayer.prepareAsync();
-        } catch (IOException e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
     }
